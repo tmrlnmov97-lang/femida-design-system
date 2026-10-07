@@ -1,0 +1,79 @@
+/* Femida — дизайн-токены.
+   Имена совпадают с переменными в Figma и в коде продукта:
+   переменная fd-bg в Figma = --fd-bg здесь.
+   Тёмная тема основная, светлая переключается классом на корне. */
+
+:root,
+.fd-dark{
+  --fd-bg:#0D130F;
+  --fd-panel:#151E19;
+  --fd-panel-2:#1C2721;
+  --fd-line:#26342C;
+  --fd-ink:#E8F0EB;
+  --fd-muted:#97A79E;
+  --fd-accent:#34D399;
+  --fd-accent-hover:#5EE0AE;
+  --fd-accent-soft:#123328;
+  --fd-accent-text:#5EE0AE;
+  --fd-on-accent:#04261A;
+  --fd-amber:#F5B547;
+  --fd-amber-soft:#33270F;
+  --fd-red:#FF7A85;
+  --fd-red-soft:#3A1A1E;
+  --fd-focus:#5EE0AE;
+  color-scheme: dark;
+}
+
+.fd-light{
+  --fd-bg:#F6FAF7;
+  --fd-panel:#FFFFFF;
+  --fd-panel-2:#EEF4F0;
+  --fd-line:#D9E4DD;
+  --fd-ink:#13221A;
+  --fd-muted:#55655C;
+  --fd-accent:#0E9F6E;
+  --fd-accent-hover:#1DB582;
+  --fd-accent-soft:#E3F6EE;
+  --fd-accent-text:#0B6B4B;
+  --fd-on-accent:#04261A;
+  --fd-amber:#8F5400;
+  --fd-amber-soft:#FFF3DF;
+  --fd-red:#B42335;
+  --fd-red-soft:#FDE8EB;
+  --fd-focus:#0B6B4B;
+  color-scheme: light;
+}
+
+:root{
+  /* отступы */
+  --space-0:0px;  --space-2:2px;  --space-4:4px;  --space-8:8px;
+  --space-12:12px; --space-16:16px; --space-20:20px; --space-24:24px;
+  --space-32:32px; --space-40:40px; --space-48:48px; --space-64:64px;
+  --space-80:80px; --space-96:96px;
+
+  /* радиусы */
+  --radius-sm:6px; --radius-md:8px; --radius-lg:12px; --radius-xl:16px; --radius-full:999px;
+
+  /* шрифты: армянский набор есть в Google Fonts */
+  --fd-serif:'Noto Serif Armenian', 'Noto Serif', Georgia, serif;
+  --fd-sans:'Noto Sans Armenian', 'Noto Sans', system-ui, sans-serif;
+}
+
+/* Типографика. Заголовки — serif, интерфейс — sans, текст не мельче 15px.
+   hero 88/92 · section 56/62 · display 48/56 · h1 36/44 · h2 28/36 · h3 22/30
+   h4 18/26 · lead 20/32 · body-lg 17/28 · body 16/26 · body-sm 15/24
+   label 15/20 · caption 14/20 · eyebrow 14/20 caps */
+.fd-hero    {font:600 88px/92px var(--fd-serif); letter-spacing:-.02em}
+.fd-section {font:600 56px/62px var(--fd-serif); letter-spacing:-.015em}
+.fd-display {font:700 48px/56px var(--fd-serif); letter-spacing:-.015em}
+.fd-h1      {font:700 36px/44px var(--fd-serif)}
+.fd-h2      {font:700 28px/36px var(--fd-serif)}
+.fd-h3      {font:600 22px/30px var(--fd-sans)}
+.fd-h4      {font:600 18px/26px var(--fd-sans)}
+.fd-lead    {font:400 20px/32px var(--fd-sans)}
+.fd-body-lg {font:400 17px/28px var(--fd-sans)}
+.fd-body    {font:400 16px/26px var(--fd-sans)}
+.fd-body-sm {font:400 15px/24px var(--fd-sans)}
+.fd-label   {font:500 15px/20px var(--fd-sans)}
+.fd-caption {font:400 14px/20px var(--fd-sans)}
+.fd-eyebrow {font:600 14px/20px var(--fd-sans); letter-spacing:.08em; text-transform:uppercase}

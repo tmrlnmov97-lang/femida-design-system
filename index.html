@@ -1,0 +1,423 @@
+<title>Femida Design Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;500;600;700&family=Noto+Serif+Armenian:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ============================================================
+   FEMIDA — DESIGN KIT
+   Токены один в один с Figma «Femida / Foundations» и с кодом:
+   переменная fd-* в Figma = CSS-переменная --fd-*.
+   ============================================================ */
+
+/* ---------- ТОКЕНЫ: ТЁМНАЯ ТЕМА (основная) ---------- */
+.fd-dark{
+  --fd-bg:#0D130F; --fd-panel:#151E19; --fd-panel-2:#1C2721; --fd-line:#26342C;
+  --fd-ink:#E8F0EB; --fd-muted:#97A79E;
+  --fd-accent:#34D399; --fd-accent-hover:#5EE0AE; --fd-accent-soft:#123328;
+  --fd-accent-text:#5EE0AE; --fd-on-accent:#04261A;
+  --fd-amber:#F5B547; --fd-amber-soft:#33270F;
+  --fd-red:#FF7A85; --fd-red-soft:#3A1A1E;
+  --fd-focus:#5EE0AE;
+  color-scheme: dark;
+}
+/* ---------- ТОКЕНЫ: СВЕТЛАЯ ТЕМА ---------- */
+.fd-light{
+  --fd-bg:#F6FAF7; --fd-panel:#FFFFFF; --fd-panel-2:#EEF4F0; --fd-line:#D9E4DD;
+  --fd-ink:#13221A; --fd-muted:#55655C;
+  --fd-accent:#0E9F6E; --fd-accent-hover:#1DB582; --fd-accent-soft:#E3F6EE;
+  --fd-accent-text:#0B6B4B; --fd-on-accent:#04261A;
+  --fd-amber:#8F5400; --fd-amber-soft:#FFF3DF;
+  --fd-red:#B42335; --fd-red-soft:#FDE8EB;
+  --fd-focus:#0B6B4B;
+  color-scheme: light;
+}
+/* ---------- ШКАЛЫ (одни для обеих тем) ---------- */
+:root{
+  --space-0:0px; --space-2:2px; --space-4:4px; --space-8:8px; --space-12:12px;
+  --space-16:16px; --space-20:20px; --space-24:24px; --space-32:32px; --space-40:40px;
+  --space-48:48px; --space-64:64px; --space-80:80px; --space-96:96px;
+  --radius-sm:6px; --radius-md:8px; --radius-lg:12px; --radius-xl:16px; --radius-full:999px;
+  --fd-serif:'Noto Serif Armenian', 'Noto Serif', Georgia, serif;
+  --fd-sans:'Noto Sans Armenian', 'Noto Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fd-mono:'IBM Plex Mono', ui-monospace, Menlo, monospace;
+}
+/* ---------- ТИПОГРАФИКА: 14 стилей из Figma ---------- */
+.fd-hero     {font:600 88px/92px var(--fd-serif); letter-spacing:-.02em}
+.fd-display  {font:700 48px/56px var(--fd-serif); letter-spacing:-.015em}
+.fd-section  {font:600 56px/62px var(--fd-serif); letter-spacing:-.015em}
+.fd-h1       {font:700 36px/44px var(--fd-serif)}
+.fd-h2       {font:700 28px/36px var(--fd-serif)}
+.fd-h3       {font:600 22px/30px var(--fd-sans)}
+.fd-h4       {font:600 18px/26px var(--fd-sans)}
+.fd-lead     {font:400 20px/32px var(--fd-sans)}
+.fd-body-lg  {font:400 17px/28px var(--fd-sans)}
+.fd-body     {font:400 16px/26px var(--fd-sans)}
+.fd-body-sm  {font:400 15px/24px var(--fd-sans)}
+.fd-label    {font:500 15px/20px var(--fd-sans)}
+.fd-caption  {font:400 14px/20px var(--fd-sans)}
+.fd-eyebrow  {font:600 14px/20px var(--fd-sans); letter-spacing:.08em; text-transform:uppercase}
+
+/* ---------- КОМПОНЕНТЫ ---------- */
+.fd-btn{
+  font:500 15px/20px var(--fd-sans); display:inline-flex; align-items:center; gap:var(--space-8);
+  padding:12px 20px; border-radius:var(--radius-md); border:1px solid transparent;
+  cursor:pointer; background:var(--fd-accent); color:var(--fd-on-accent);
+}
+.fd-btn:hover{background:var(--fd-accent-hover)}
+.fd-btn:focus-visible{outline:2px solid var(--fd-focus); outline-offset:2px}
+.fd-btn[disabled]{opacity:.45; cursor:not-allowed}
+.fd-btn--secondary{background:transparent; color:var(--fd-ink); border-color:var(--fd-line)}
+.fd-btn--secondary:hover{background:var(--fd-panel-2); border-color:var(--fd-accent)}
+.fd-btn--ghost{background:transparent; color:var(--fd-accent-text); border-color:transparent}
+.fd-btn--ghost:hover{background:var(--fd-accent-soft)}
+.fd-btn--sm{padding:8px 14px; font-size:14px}
+
+.fd-input{
+  font:400 15px/24px var(--fd-sans); width:100%; padding:11px 14px;
+  background:var(--fd-panel); color:var(--fd-ink);
+  border:1px solid var(--fd-line); border-radius:var(--radius-md);
+}
+.fd-input::placeholder{color:var(--fd-muted)}
+.fd-input:focus{outline:2px solid var(--fd-focus); outline-offset:-1px; border-color:transparent}
+.fd-input--error{border-color:var(--fd-red)}
+.fd-input[disabled]{opacity:.45}
+
+.fd-chip{
+  font:500 14px/20px var(--fd-sans); display:inline-flex; align-items:center; gap:6px;
+  padding:7px 13px; border-radius:var(--radius-full);
+  border:1px solid var(--fd-line); background:transparent; color:var(--fd-ink); cursor:pointer;
+}
+.fd-chip:hover{border-color:var(--fd-accent)}
+.fd-chip[aria-pressed="true"]{background:var(--fd-accent); border-color:var(--fd-accent); color:var(--fd-on-accent)}
+
+.fd-tag{
+  font:500 13px/18px var(--fd-sans); display:inline-block; padding:2px 10px;
+  border-radius:var(--radius-full); background:var(--fd-accent-soft); color:var(--fd-accent-text);
+}
+.fd-tag--warn{background:var(--fd-amber-soft); color:var(--fd-amber)}
+.fd-tag--danger{background:var(--fd-red-soft); color:var(--fd-red)}
+
+.fd-panel{
+  background:var(--fd-panel); border:1px solid var(--fd-line);
+  border-radius:var(--radius-lg); padding:var(--space-24);
+}
+.fd-source{
+  background:var(--fd-panel-2); border:1px solid var(--fd-line);
+  border-left:3px solid var(--fd-accent); border-radius:0 var(--radius-md) var(--radius-md) 0;
+  padding:14px 16px; display:grid; gap:4px;
+}
+.fd-alert{border-radius:var(--radius-md); padding:12px 16px; display:grid; gap:2px}
+.fd-alert--info{background:var(--fd-accent-soft); color:var(--fd-accent-text)}
+.fd-alert--warn{background:var(--fd-amber-soft); color:var(--fd-amber)}
+.fd-alert--danger{background:var(--fd-red-soft); color:var(--fd-red)}
+
+.fd-skeleton{
+  background:linear-gradient(90deg,var(--fd-panel-2) 25%,var(--fd-line) 50%,var(--fd-panel-2) 75%);
+  background-size:200% 100%; border-radius:var(--radius-sm); height:14px;
+  animation:fd-shimmer 1.4s linear infinite;
+}
+@keyframes fd-shimmer{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.fd-skeleton{animation:none}}
+
+/* ============================================================
+   НИЖЕ — ОФОРМЛЕНИЕ САМОЙ ЭТОЙ СТРАНИЦЫ (в прод не нужно)
+   ============================================================ */
+*{box-sizing:border-box}
+body{
+  margin:0; background:#0D130F; color:#E8F0EB;
+  font:16px/1.6 var(--fd-sans); padding-inline:20px; padding-block:0 80px;
+}
+.page{max-width:1080px; margin:0 auto}
+.top{padding-block:52px 28px; display:grid; gap:14px; border-bottom:1px solid #26342C}
+.top h1{margin:0; font:600 clamp(34px,5vw,56px)/1.05 var(--fd-serif); letter-spacing:-.02em}
+.top p{margin:0; max-width:64ch; color:#97A79E; font-size:17px}
+section{padding-block:40px 8px; display:grid; gap:18px; border-top:1px solid #26342C}
+section:first-of-type{border-top:0}
+h2{margin:0; font:700 28px/36px var(--fd-serif)}
+h3{margin:0; font:600 18px/26px var(--fd-sans)}
+.hint{color:#97A79E; font-size:15px; max-width:70ch; margin:0}
+.steps{counter-reset:s; display:grid; gap:12px; padding:0; margin:0; list-style:none; max-width:72ch}
+.steps li{counter-increment:s; display:grid; grid-template-columns:28px 1fr; gap:12px; align-items:start}
+.steps li::before{
+  content:counter(s); width:28px; height:28px; border-radius:999px; display:grid; place-items:center;
+  background:#123328; color:#5EE0AE; font:600 14px/1 var(--fd-mono);
+}
+pre{
+  margin:0; background:#151E19; border:1px solid #26342C; border-radius:12px;
+  padding:18px 20px; overflow-x:auto; font:400 13px/1.7 var(--fd-mono); color:#E8F0EB;
+}
+.demo{display:grid; gap:0; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); border:1px solid #26342C; border-radius:12px; overflow:hidden}
+.demo > div{padding:24px; display:grid; gap:16px; align-content:start; background:var(--fd-bg); color:var(--fd-ink)}
+.demo .mark{font:600 12px/1 var(--fd-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--fd-muted)}
+.row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.swatches{display:grid; grid-template-columns:repeat(auto-fill,minmax(132px,1fr)); gap:12px}
+.sw{display:grid; gap:6px}
+.sw .chip{height:56px; border-radius:8px; border:1px solid var(--fd-line)}
+.sw .n{font:500 12px/1.3 var(--fd-mono); color:var(--fd-ink)}
+.sw .v{font:400 12px/1.3 var(--fd-mono); color:var(--fd-muted)}
+.type-row{display:grid; grid-template-columns:150px 1fr; gap:18px; align-items:baseline; padding-block:10px; border-bottom:1px solid #26342C}
+.type-row:last-child{border-bottom:0}
+.type-row .meta{font:500 12px/1.4 var(--fd-mono); color:#97A79E}
+.type-row .sample{overflow:hidden; text-overflow:ellipsis}
+.scale{display:grid; gap:8px}
+.scale .bar{display:grid; grid-template-columns:90px 1fr; gap:14px; align-items:center; font:400 13px/1 var(--fd-mono); color:#97A79E}
+.scale .bar i{display:block; height:14px; background:#34D399; border-radius:3px}
+.rules{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.rule{background:#151E19; border:1px solid #26342C; border-radius:12px; padding:18px 20px; display:grid; gap:8px; align-content:start}
+.rule ul{margin:0; padding-left:20px; display:grid; gap:6px; font-size:15px}
+.ok{color:#5EE0AE} .no{color:#FF7A85}
+@media (max-width:620px){
+  .type-row{grid-template-columns:1fr; gap:4px}
+  .top{padding-block:36px 22px}
+}
+</style>
+
+<div class="page">
+  <header class="top">
+    <h1>Femida Design Kit</h1>
+    <p>Дизайн-система Femida одним файлом: 16 цветовых токенов в двух темах, 14 текстовых стилей, шкалы отступов и радиусов, компоненты с состояниями. Значения совпадают с файлом Figma «Femida / Foundations» и с переменными в коде: <code>fd-bg</code> в Figma равно <code>--fd-bg</code> в CSS.</p>
+  </header>
+
+  <section>
+    <h2>Как скормить это Claude Design</h2>
+    <ol class="steps">
+      <li><strong>Приложи этот файл к первому сообщению.</strong> Он самодостаточный: шрифты подключаются из Google Fonts, зависимостей нет.</li>
+      <li><strong>Напиши прямо:</strong> «Используй дизайн-систему из приложенного файла. Все цвета, шрифты, отступы и радиусы бери только из переменных <code>--fd-*</code>. Своих значений не добавляй.»</li>
+      <li><strong>Если файл приложить нельзя</strong> — скопируй блок кода ниже в начало запроса. Это та же система без примеров.</li>
+      <li><strong>Проси обе темы.</strong> Тёмная основная: класс <code>fd-dark</code> на корне, светлая — <code>fd-light</code>.</li>
+    </ol>
+    <p class="hint">Шрифты Noto Sans Armenian и Noto Serif Armenian есть в Google Fonts, поэтому в вебе армянский текст наберётся нормально. В каталоге Figma этих семейств нет — там в стилях стоят подменные Noto Sans и Noto Serif, и перед передачей в разработку семейство нужно заменить.</p>
+<pre>:root{
+  /* тёмная тема — основная */
+  --fd-bg:#0D130F; --fd-panel:#151E19; --fd-panel-2:#1C2721; --fd-line:#26342C;
+  --fd-ink:#E8F0EB; --fd-muted:#97A79E;
+  --fd-accent:#34D399; --fd-accent-hover:#5EE0AE; --fd-accent-soft:#123328;
+  --fd-accent-text:#5EE0AE; --fd-on-accent:#04261A;
+  --fd-amber:#F5B547; --fd-amber-soft:#33270F;
+  --fd-red:#FF7A85; --fd-red-soft:#3A1A1E; --fd-focus:#5EE0AE;
+
+  /* светлая тема — те же имена, другие значения */
+  /* bg #F6FAF7 · panel #FFFFFF · panel-2 #EEF4F0 · line #D9E4DD
+     ink #13221A · muted #55655C · accent #0E9F6E · accent-hover #1DB582
+     accent-soft #E3F6EE · accent-text #0B6B4B · on-accent #04261A
+     amber #8F5400 · amber-soft #FFF3DF · red #B42335 · red-soft #FDE8EB · focus #0B6B4B */
+
+  --space-4:4px; --space-8:8px; --space-12:12px; --space-16:16px; --space-20:20px;
+  --space-24:24px; --space-32:32px; --space-40:40px; --space-48:48px;
+  --space-64:64px; --space-80:80px; --space-96:96px;
+  --radius-sm:6px; --radius-md:8px; --radius-lg:12px; --radius-xl:16px; --radius-full:999px;
+
+  --fd-serif:'Noto Serif Armenian', Georgia, serif;
+  --fd-sans:'Noto Sans Armenian', system-ui, sans-serif;
+}
+/* шкала: hero 88/92 · display 48/56 · section 56/62 · h1 36/44 · h2 28/36
+   h3 22/30 · h4 18/26 · lead 20/32 · body-lg 17/28 · body 16/26
+   body-sm 15/24 · label 15/20 · caption 14/20 · eyebrow 14/20 caps
+   Заголовки — serif, интерфейс — sans. Текст не мельче 15px. */</pre>
+  </section>
+
+  <section>
+    <h2>Цвет</h2>
+    <p class="hint">Слева тёмная тема, справа светлая. Имена одинаковые — меняется только значение, поэтому экран переключается целиком заменой класса на корне.</p>
+    <div class="demo">
+      <div class="fd-dark">
+        <span class="mark">Dark · основная</span>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:var(--fd-bg)"></div><span class="n">fd-bg</span><span class="v">#0D130F</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-panel)"></div><span class="n">fd-panel</span><span class="v">#151E19</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-panel-2)"></div><span class="n">fd-panel-2</span><span class="v">#1C2721</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-line)"></div><span class="n">fd-line</span><span class="v">#26342C</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-ink)"></div><span class="n">fd-ink</span><span class="v">#E8F0EB</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-muted)"></div><span class="n">fd-muted</span><span class="v">#97A79E</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-accent)"></div><span class="n">fd-accent</span><span class="v">#34D399</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-accent-hover)"></div><span class="n">accent-hover</span><span class="v">#5EE0AE</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-accent-soft)"></div><span class="n">accent-soft</span><span class="v">#123328</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-amber)"></div><span class="n">fd-amber</span><span class="v">#F5B547</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-red)"></div><span class="n">fd-red</span><span class="v">#FF7A85</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-focus)"></div><span class="n">fd-focus</span><span class="v">#5EE0AE</span></div>
+        </div>
+      </div>
+      <div class="fd-light">
+        <span class="mark">Light</span>
+        <div class="swatches">
+          <div class="sw"><div class="chip" style="background:var(--fd-bg)"></div><span class="n">fd-bg</span><span class="v">#F6FAF7</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-panel)"></div><span class="n">fd-panel</span><span class="v">#FFFFFF</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-panel-2)"></div><span class="n">fd-panel-2</span><span class="v">#EEF4F0</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-line)"></div><span class="n">fd-line</span><span class="v">#D9E4DD</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-ink)"></div><span class="n">fd-ink</span><span class="v">#13221A</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-muted)"></div><span class="n">fd-muted</span><span class="v">#55655C</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-accent)"></div><span class="n">fd-accent</span><span class="v">#0E9F6E</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-accent-hover)"></div><span class="n">accent-hover</span><span class="v">#1DB582</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-accent-soft)"></div><span class="n">accent-soft</span><span class="v">#E3F6EE</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-amber)"></div><span class="n">fd-amber</span><span class="v">#8F5400</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-red)"></div><span class="n">fd-red</span><span class="v">#B42335</span></div>
+          <div class="sw"><div class="chip" style="background:var(--fd-focus)"></div><span class="n">fd-focus</span><span class="v">#0B6B4B</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Типографика</h2>
+    <p class="hint">Образец — армянский алфавит и строка на латинице: так видно, что семейство действительно отрисовывает армянские буквы. Настоящие формулировки берём у команды, выдумывать армянский текст нельзя.</p>
+    <div class="type-row"><span class="meta">fd/hero · 88/92<br>serif semibold</span><span class="sample fd-hero">Աա Բբ Գգ</span></div>
+    <div class="type-row"><span class="meta">fd/section · 56/62<br>serif semibold</span><span class="sample fd-section">Աա Բբ Գգ Դդ</span></div>
+    <div class="type-row"><span class="meta">fd/display · 48/56<br>serif bold</span><span class="sample fd-display">Աա Բբ Գգ Դդ Եե</span></div>
+    <div class="type-row"><span class="meta">fd/h1 · 36/44<br>serif bold</span><span class="sample fd-h1">Աա Բբ Գգ Դդ Եե Զզ</span></div>
+    <div class="type-row"><span class="meta">fd/h2 · 28/36<br>serif bold</span><span class="sample fd-h2">Աա Բբ Գգ Դդ Եե Զզ Էէ</span></div>
+    <div class="type-row"><span class="meta">fd/h3 · 22/30<br>sans semibold</span><span class="sample fd-h3">Աա Բբ Գգ Դդ Եե Զզ Էէ Ըը</span></div>
+    <div class="type-row"><span class="meta">fd/h4 · 18/26<br>sans semibold</span><span class="sample fd-h4">Femida — Աա Բբ Գգ Դդ Եե Զզ</span></div>
+    <div class="type-row"><span class="meta">fd/lead · 20/32<br>sans regular</span><span class="sample fd-lead">Femida — Աա Բբ Գգ Դդ Եե Զզ Էէ</span></div>
+    <div class="type-row"><span class="meta">fd/body-lg · 17/28</span><span class="sample fd-body-lg">Femida — Աա Բբ Գգ Դդ Եե Զզ Էէ Ըը Թթ</span></div>
+    <div class="type-row"><span class="meta">fd/body · 16/26</span><span class="sample fd-body">Femida — Աա Բբ Գգ Դդ Եե Զզ Էէ Ըը Թթ Ժժ</span></div>
+    <div class="type-row"><span class="meta">fd/body-sm · 15/24<br>минимум для текста</span><span class="sample fd-body-sm">Femida — Աա Բբ Գգ Դդ Եե Զզ Էէ Ըը Թթ Ժժ Իի</span></div>
+    <div class="type-row"><span class="meta">fd/label · 15/20<br>sans medium</span><span class="sample fd-label">Femida — Աա Բբ Գգ Դդ Եե Զզ Էէ Ըը</span></div>
+    <div class="type-row"><span class="meta">fd/caption · 14/20</span><span class="sample fd-caption">Femida — Աա Բբ Գգ Դդ Եե Զզ Էէ Ըը Թթ</span></div>
+    <div class="type-row"><span class="meta">fd/eyebrow · 14/20<br>caps, трекинг .08em</span><span class="sample fd-eyebrow">Femida · Աա Բբ Գգ</span></div>
+  </section>
+
+  <section>
+    <h2>Отступы и радиусы</h2>
+    <div class="scale">
+      <div class="bar"><span>space/4</span><i style="width:4px"></i></div>
+      <div class="bar"><span>space/8</span><i style="width:8px"></i></div>
+      <div class="bar"><span>space/12</span><i style="width:12px"></i></div>
+      <div class="bar"><span>space/16</span><i style="width:16px"></i></div>
+      <div class="bar"><span>space/20</span><i style="width:20px"></i></div>
+      <div class="bar"><span>space/24</span><i style="width:24px"></i></div>
+      <div class="bar"><span>space/32</span><i style="width:32px"></i></div>
+      <div class="bar"><span>space/40</span><i style="width:40px"></i></div>
+      <div class="bar"><span>space/48</span><i style="width:48px"></i></div>
+      <div class="bar"><span>space/64</span><i style="width:64px"></i></div>
+      <div class="bar"><span>space/80</span><i style="width:80px"></i></div>
+      <div class="bar"><span>space/96</span><i style="width:96px"></i></div>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <span class="fd-caption" style="color:#97A79E">Радиусы:</span>
+      <span style="width:64px;height:48px;background:#151E19;border:1px solid #26342C;border-radius:6px"></span>
+      <span class="fd-caption" style="color:#97A79E">sm 6</span>
+      <span style="width:64px;height:48px;background:#151E19;border:1px solid #26342C;border-radius:8px"></span>
+      <span class="fd-caption" style="color:#97A79E">md 8</span>
+      <span style="width:64px;height:48px;background:#151E19;border:1px solid #26342C;border-radius:12px"></span>
+      <span class="fd-caption" style="color:#97A79E">lg 12</span>
+      <span style="width:64px;height:48px;background:#151E19;border:1px solid #26342C;border-radius:16px"></span>
+      <span class="fd-caption" style="color:#97A79E">xl 16</span>
+      <span style="width:64px;height:48px;background:#151E19;border:1px solid #26342C;border-radius:999px"></span>
+      <span class="fd-caption" style="color:#97A79E">full</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Компоненты</h2>
+    <p class="hint">Соответствие PrimeVue: кнопка — Button, поле — InputText, чип режима — ToggleButton или Chip, тег — Tag, панель — Card, предупреждение — Message, загрузка — Skeleton. Для каждого интерактивного элемента нужны состояния: обычное, наведение, фокус рамкой, отключённое, загрузка.</p>
+    <div class="demo">
+      <div class="fd-dark">
+        <span class="mark">Dark</span>
+        <div class="row">
+          <button class="fd-btn">Հարցնել</button>
+          <button class="fd-btn fd-btn--secondary">Secondary</button>
+          <button class="fd-btn fd-btn--ghost">Ghost</button>
+          <button class="fd-btn" disabled>Disabled</button>
+        </div>
+        <input class="fd-input" placeholder="Задайте вопрос или приложите документ…" aria-label="Пример поля ввода, тёмная тема">
+        <div class="row">
+          <button class="fd-chip" aria-pressed="true">Իրավական վերլուծություն</button>
+          <button class="fd-chip" aria-pressed="false">Փաստաթուղթ</button>
+          <button class="fd-chip" aria-pressed="false">Դատական պրակտիկա</button>
+        </div>
+        <div class="row">
+          <span class="fd-tag">50 / 50</span>
+          <span class="fd-tag fd-tag--warn">Շուտով</span>
+          <span class="fd-tag fd-tag--danger">Սխալ</span>
+        </div>
+        <div class="fd-source">
+          <span class="fd-caption" style="color:var(--fd-muted)">ԱՂԲՅՈՒՐ · ARLIS</span>
+          <span class="fd-body-sm">Քաղաքացիական օրենսգիրք, հոդված 1087</span>
+          <span class="fd-caption" style="color:var(--fd-muted)">редакция на 01.09.2026</span>
+        </div>
+        <div class="fd-alert fd-alert--danger">
+          <strong class="fd-label">Աղբյուր չի գտնվել</strong>
+          <span class="fd-caption">Уточните вопрос или укажите отрасль права</span>
+        </div>
+        <div class="fd-panel" style="display:grid;gap:10px">
+          <div class="fd-skeleton" style="width:70%"></div>
+          <div class="fd-skeleton" style="width:100%"></div>
+          <div class="fd-skeleton" style="width:45%"></div>
+        </div>
+      </div>
+      <div class="fd-light">
+        <span class="mark">Light</span>
+        <div class="row">
+          <button class="fd-btn">Հարցնել</button>
+          <button class="fd-btn fd-btn--secondary">Secondary</button>
+          <button class="fd-btn fd-btn--ghost">Ghost</button>
+          <button class="fd-btn" disabled>Disabled</button>
+        </div>
+        <input class="fd-input" placeholder="Задайте вопрос или приложите документ…" aria-label="Пример поля ввода, светлая тема">
+        <div class="row">
+          <button class="fd-chip" aria-pressed="true">Իրավական վերլուծություն</button>
+          <button class="fd-chip" aria-pressed="false">Փաստաթուղթ</button>
+          <button class="fd-chip" aria-pressed="false">Դատական պրակտիկա</button>
+        </div>
+        <div class="row">
+          <span class="fd-tag">50 / 50</span>
+          <span class="fd-tag fd-tag--warn">Շուտով</span>
+          <span class="fd-tag fd-tag--danger">Սխալ</span>
+        </div>
+        <div class="fd-source">
+          <span class="fd-caption" style="color:var(--fd-muted)">ԱՂԲՅՈՒՐ · ARLIS</span>
+          <span class="fd-body-sm">Քաղաքացիական օրենսգիրք, հոդված 1087</span>
+          <span class="fd-caption" style="color:var(--fd-muted)">редакция на 01.09.2026</span>
+        </div>
+        <div class="fd-alert fd-alert--danger">
+          <strong class="fd-label">Աղբյուր չի գտնվել</strong>
+          <span class="fd-caption">Уточните вопрос или укажите отрасль права</span>
+        </div>
+        <div class="fd-panel" style="display:grid;gap:10px">
+          <div class="fd-skeleton" style="width:70%"></div>
+          <div class="fd-skeleton" style="width:100%"></div>
+          <div class="fd-skeleton" style="width:45%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Правила для генерации</h2>
+    <div class="rules">
+      <div class="rule">
+        <h3 class="ok">Делать</h3>
+        <ul>
+          <li>Цвета, отступы и радиусы — только из переменных <code>--fd-*</code></li>
+          <li>Заголовки serif, интерфейс sans</li>
+          <li>Тёмная тема по умолчанию, светлая той же разметкой</li>
+          <li>Видимая рамка фокуса цветом <code>--fd-focus</code></li>
+          <li>Скелетоны вместо крутящихся спиннеров</li>
+          <li>Пустое, загрузочное и ошибочное состояние для каждого экрана</li>
+          <li>Контраст по WCAG 2.1 AA в обеих темах</li>
+        </ul>
+      </div>
+      <div class="rule">
+        <h3 class="no">Не делать</h3>
+        <ul>
+          <li>Произвольные hex-значения мимо токенов</li>
+          <li>Градиенты, неоновые свечения, «AI-эстетика»</li>
+          <li>Текст мельче 15px в основном потоке</li>
+          <li>Латинскую рыбу там, где должен быть армянский</li>
+          <li>Выдуманные цифры о базе законов и клиентах</li>
+          <li>Эмодзи вместо иконок</li>
+          <li>Светлую тему по умолчанию</li>
+        </ul>
+      </div>
+      <div class="rule">
+        <h3>Размеры экранов</h3>
+        <ul>
+          <li>Десктоп 1440 — основной</li>
+          <li>Планшет 1024</li>
+          <li>Телефон 390 — обязательны вход, чат и сайт</li>
+          <li>Армянский текст длиннее английского примерно на четверть: проверяйте кнопки и меню</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
